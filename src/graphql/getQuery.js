@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-const getCurrencyRates = gql`
+const GET_CURRENCY_AND_RATE = gql`
 {
   rates(currency: "USD") {
     currency,
@@ -10,5 +10,5 @@ const getCurrencyRates = gql`
 `
 
 export {
-   getCurrencyRates
+   GET_CURRENCY_AND_RATE
 }
