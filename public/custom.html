@@ -1,0 +1,37 @@
+<script>
+var menu = [
+   {name: 'Dashboard', path: '/dashboard'},
+   {name: 'Edit Profile', path: '/dashboard/?dashboard=profile'},
+   {name: 'Add Shop', path: '/submit'},
+   {name: 'My Listings', path: '/dashboard/?dashboard=listings'},
+   {name: 'Bookmarks', path: '/dashboard/?dashboard=bookmarks'},
+   {name: 'Reviews', path: '/dashboard/?dashboard=reviews'},
+   {name: 'Change Password', path: '/dashboard/?dashboard=changepass'},
+   {name: 'Log out', path: '/logout'}
+];
+
+document.getElementsByClassName('header-user-menu')[0].onclick = function () {
+   var themeMenu = document.querySelector('ul.hu-menu-vis');
+   themeMenu.innerHTML = '';
+   menu.forEach(function (element) {
+      var newNode = document.createElement('li');
+      var newInnerNode = document.createElement('a');
+      newInnerNode.innerHTML = element.name;
+      newInnerNode.setAttribute('href', element.path);
+      newNode.appendChild(newInnerNode);
+      themeMenu.appendChild(newNode);
+   });
+ };
+
+var registerButton = document.getElementsByClassName('add-list')[0];
+registerButton.innerHTML = 'Customer Registration +';
+registerButton.setAttribute('href', 'register');
+
+var addNewButton = document.querySelector('div.user-profile-menu:nth-child(2) ul li:last-child a');
+addNewButton.setAttribute('href', '/submit');
+addNewIcon = addNewButton.firstElementChild;
+addNewButton.innerText = '';
+addNewButton.appendChild(addNewIcon);
+addNewButton.append(' Add Shop');
+
+</script>

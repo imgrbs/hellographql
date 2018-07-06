@@ -1,5 +1,14 @@
-import ApolloClient from "apollo-boost";
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
+import ApolloClient from 'apollo-client';
 
-export default new ApolloClient({
-  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: "http://localhost:3001/graphql",
+  }),
+  cache
 });
+
+export default client;
